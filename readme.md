@@ -7,7 +7,7 @@ PIXL
 Machine Learning
 ## Link
 
-https://github.com/jijnasu/PIXL.git
+https://github.com/jijnasu/PIXL
 
 ## About Project
 
