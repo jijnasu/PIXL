@@ -12,6 +12,7 @@ https://github.com/jijnasu/PIXL.git
 ## About Project
 
 Our project PIXL recognizes Gun using Deep Learning.
+
 Tech Stack- Python, VS code
 
 ## Team Members
