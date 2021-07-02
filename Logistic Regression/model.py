@@ -29,7 +29,7 @@ def J(g,y):
 
 def gd(theta,x,y,alpha=0.00025,itr=2000,graph=False,cost=False):
     """ GRADIENT DESCENT FUNCTION """
-
+    
     if graph:
         cost = []
         for i in range(itr):
@@ -50,8 +50,10 @@ def gd(theta,x,y,alpha=0.00025,itr=2000,graph=False,cost=False):
 
 
 def predict(x,y,theta):
+    """It predicts if the image is having a gun in it"""
+
     predict_y = g(theta.T @ x)
     predict_y[predict_y>=0.5]=1
     predict_y[predict_y<0.5]=0
     # print(predict_y==y)
-    return len(predict_y[predict_y==y])*100/m
+    return len(predict_y[predict_y==y])*100/y.size
