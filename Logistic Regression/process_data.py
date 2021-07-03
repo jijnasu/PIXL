@@ -24,18 +24,18 @@ def resize_rename_img(datafolder="raw_data",target="data",height=250,width=250):
     # Cleaning target folder
     gun_names = glob.glob(target+"\\*.jpeg")
     gun_names += glob.glob(target+"\\*.jpg")
-    for gun in gun_names:
-        os.unlink(gun)
+    # for gun in gun_names:
+    #     os.unlink(gun)
     
+    i=len(gun_names)
     # Processing and saving to target
     gun_names = glob.glob(datafolder+"\\*.jpeg")
     gun_names += glob.glob(datafolder+"\\*.jpg")
-    i=0
     for gun in gun_names[:]:
         gun_img = img.open(gun)
         shp = np.array(gun_img).shape
         if gun_img.height>=height and gun_img.width>=width and shp[-1]==3:
-            gun_img.resize((width,height)).save("data\\gun"+str(i)+".jpg")
+            gun_img.resize((width,height)).save(f"{target}\\gun"+str(i)+".jpg")
             i+=1
     print("Total no of images processed and saved : ",i)
 

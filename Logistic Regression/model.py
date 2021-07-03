@@ -36,8 +36,8 @@ def gd(theta,x,y,alpha=0.00025,itr=2000,graph=False,cost=False):
             theta = theta - (x @ (g(theta.transpose() @ x)-y).transpose() * alpha/y.size)
             c = J(g(theta.transpose()@x),y)
             cost += [c]
-            if cost and i%500==0:
-                print(f"After {i} iterations cost : {c}")
+            if cost and (i+1)%500==0:
+                print(f"After {i+1} iterations cost : {c}")
         # plt.open
         plt.close()
         plt.plot(np.arange(itr),cost)
@@ -49,11 +49,19 @@ def gd(theta,x,y,alpha=0.00025,itr=2000,graph=False,cost=False):
 
 
 
-def predict(x,y,theta):
+def predict(x,theta):
     """It predicts if the image is having a gun in it"""
 
     predict_y = g(theta.T @ x)
     predict_y[predict_y>=0.5]=1
     predict_y[predict_y<0.5]=0
     # print(predict_y==y)
+    return predict_y
+
+
+
+def accuracy(x,y,theta):
+    """It retures the accuracy of the model"""
+
+    predict_y = predict(x,theta)
     return len(predict_y[predict_y==y])*100/y.size
