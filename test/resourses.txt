@@ -1,3 +1,0 @@
-Dataset-- https://public.roboflow.com/object-detection/pistols
-
-

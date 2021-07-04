@@ -24,10 +24,10 @@ def resize_rename_img(datafolder="raw_data",target="data",height=250,width=250):
     # Cleaning target folder
     gun_names = glob.glob(target+"\\*.jpeg")
     gun_names += glob.glob(target+"\\*.jpg")
-    # for gun in gun_names:
-    #     os.unlink(gun)
+    for gun in gun_names:
+        os.unlink(gun)
     
-    i=len(gun_names)
+    i=0
     # Processing and saving to target
     gun_names = glob.glob(datafolder+"\\*.jpeg")
     gun_names += glob.glob(datafolder+"\\*.jpg")
